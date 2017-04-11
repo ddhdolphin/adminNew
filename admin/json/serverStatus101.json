@@ -1,0 +1,73 @@
+[
+  {
+    "systemId": "101",
+    "server": "server1",
+    "status": "正在运行",
+    "CPU": "50%",
+    "memory": "40%",
+    "disk": "70%",
+    "diskName": "root"
+  },
+  {
+    "systemId": "101",
+    "diskName": "home",
+    "disk": "50%"
+  },
+  {
+    "systemId": "101",
+    "diskName": "admin",
+    "disk": "40%"
+  },
+  {
+    "systemId": "101",
+    "server": "server2",
+    "status": "正在运行",
+    "CPU": "50%",
+    "memory": "40%",
+    "disk": "70%",
+    "diskName": "root"
+  },
+  {
+    "systemId": "101",
+    "diskName": "home",
+    "disk": "50%"
+  },
+  {
+    "systemId": "101",
+    "server": "server3",
+    "status": "正在运行",
+    "CPU": "50%",
+    "memory": "40%",
+    "disk": "70%",
+    "diskName": "root"
+  },
+  {
+    "systemId": "101",
+    "diskName": "home",
+    "disk": "50%"
+  },
+  {
+    "systemId": "101",
+    "diskName": "admin",
+    "disk": "40%"
+  },
+  {
+    "systemId": "101",
+    "server": "server4",
+    "status": "正在运行",
+    "CPU": "50%",
+    "memory": "40%",
+    "disk": "70%",
+    "diskName": "root"
+  },
+  {
+    "systemId": "101",
+    "diskName": "home",
+    "disk": "50%"
+  },
+  {
+    "systemId": "101",
+    "diskName": "admin",
+    "disk": "40%"
+  }
+]

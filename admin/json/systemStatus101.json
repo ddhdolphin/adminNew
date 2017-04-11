@@ -1,0 +1,92 @@
+[
+  {
+  "systemId": "101",
+  "systemName": "子系统y",
+  "service": "server1",
+  "process": "process1",
+  "masterService": "HostName//目录",
+  "status": "正在运行",
+  "isRestart": "是",
+  "isResSuccess": "是"
+},
+  {
+    "systemId": "101",
+    "systemName": "",
+    "process": "process2",
+    "service": "server1",
+    "masterService": "HostName//目录",
+    "status": "正在运行",
+    "isRestart": "是",
+    "isResSuccess": "是"
+  },
+  {
+    "systemId": "101",
+    "systemName": "",
+    "process": "process3",
+    "service": "server1",
+    "masterService": "HostName//目录",
+    "status": "正在运行",
+    "isRestart": "是",
+    "isResSuccess": "是"
+  },
+  {
+    "systemId": "101",
+    "systemName": "子系统2",
+    "process": "process1",
+    "service": "server2",
+    "masterService": "HostName//目录",
+    "status": "正在运行",
+    "isRestart": "是",
+    "isResSuccess": "是"
+  },
+  {
+    "systemId": "101",
+    "systemName": "",
+    "process": "process2",
+    "service": "server2",
+    "masterService": "HostName//目录",
+    "status": "正在运行",
+    "isRestart": "是",
+    "isResSuccess": "是"
+  },
+  {
+    "systemId": "101",
+    "systemName": "",
+    "process": "process3",
+    "service": "server2",
+    "masterService": "HostName//目录",
+    "status": "正在运行",
+    "isRestart": "是",
+    "isResSuccess": "是"
+  },
+  {
+    "systemId": "101",
+    "systemName": "子系统3",
+    "process": "process1",
+    "service": "server3",
+    "masterService": "HostName//目录",
+    "status": "正在运行",
+    "isRestart": "是",
+    "isResSuccess": "是"
+  },
+  {
+    "systemId": "101",
+    "systemName": "",
+    "process": "process2",
+    "service": "server3",
+    "masterService": "HostName//目录",
+    "status": "正在运行",
+    "isRestart": "是",
+    "isResSuccess": "是"
+  },
+  {
+    "systemId": "101",
+    "systemName": "",
+    "process": "process3",
+    "service": "server3",
+    "masterService": "HostName//目录",
+    "status": "正在运行",
+    "isRestart": "是",
+    "isResSuccess": "是"
+  }
+]

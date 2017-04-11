@@ -1,0 +1,74 @@
+[
+  {
+
+    "system1": [
+      {
+        "process": "process1",
+        "status": "正在运行",
+        "service": "HostName//目录",
+        "isRestart": "是",
+        "isResSuccess": "是"
+      },
+      {
+        "process": "process2",
+        "status": "正在运行",
+        "service": "HostName//目录",
+        "isRestart": "是",
+        "isResSuccess": "是"
+      },
+      {
+        "process": "process3",
+        "status": "正在运行",
+        "service": "HostName//目录",
+        "isRestart": "是",
+        "isResSuccess": "是"
+      }
+    ],
+    "system2": [
+      {
+        "process": "process1",
+        "status": "正在运行",
+        "service": "HostName//目录",
+        "isRestart": "否",
+        "isResSuccess": "是"
+      },
+      {
+        "process": "process2",
+        "status": "正在运行",
+        "service": "HostName//目录",
+        "isRestart": "否",
+        "isResSuccess": "是"
+      },
+      {
+        "process": "process3",
+        "status": "正在运行",
+        "service": "HostName//目录",
+        "isRestart": "是",
+        "isResSuccess": "是"
+      }
+    ],
+    "system3": [
+      {
+        "process": "process1",
+        "status": "正在运行",
+        "service": "HostName//目录",
+        "isRestart": "是",
+        "isResSuccess": "是"
+      },
+      {
+        "process": "process2",
+        "status": "正在运行",
+        "service": "HostName//目录",
+        "isRestart": "是",
+        "isResSuccess": "是"
+      },
+      {
+        "process": "process3",
+        "status": "正在运行",
+        "service": "HostName//目录",
+        "isRestart": "否",
+        "isResSuccess": "是"
+      }
+    ]
+  }
+]

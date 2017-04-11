@@ -1,0 +1,121 @@
+<div class="row">
+	<div class="am-u-md-12 am-u-sm-12">
+		<div class="tpl-portlet-components" ng-controller="warningCtrl">
+		<div class="portlet-title">
+		<div class="caption font-green bold">
+			 告警列表
+			<div class="am-form-group"  style="display: inline-block">
+				<label class="am-radio-inline">
+					<input type="radio" value="0" name="docInlineRadio" ng-model="tagSele.statusNum" ng-click="ischeck()">
+					<span class="am-badge tpl-badge-success am-round">正常</span>
+				</label>
+				<label class="am-radio-inline">
+					<input type="radio" value="1" name="docInlineRadio" ng-model="tagSele.statusNum" ng-click="ischeck()">
+					<span class="am-badge tpl-badge-warning am-round">警告</span>
+				</label>
+				<label class="am-radio-inline">
+					<input type="radio" value="2"  name="docInlineRadio" ng-model="tagSele.statusNum" ng-click="ischeck()">
+					<span class="am-badge tpl-badge-danger am-round">危险</span>
+				</label>
+			</div>
+			<div class="am-form-group" style="display: inline-block">
+				<label class="am-radio-inline">
+					<input type="radio" value="1" name="docInlineRadio2" ng-model="tagSele.handleNum" ng-click="ischeck()">
+					<span class="am-badge tpl-badge-warning am-round">未处理</span>
+				</label>
+				<label class="am-radio-inline">
+					<input type="radio" value="0" name="docInlineRadio2" ng-model="tagSele.handleNum" ng-click="ischeck()">
+					<span class="am-badge tpl-badge-success am-round">已处理</span>
+				</label>
+			</div>
+			<span class="am-badge tpl-badge-success am-round" style="cursor: pointer;margin-left: 10px;display: inline-block" ng-click="clearRadio()">清空选项</span>
+
+		</div>
+		<div class="tpl-portlet-input tpl-fz-ml">
+			<div class="portlet-input input-small input-inline">
+				<div class="input-icon right">
+					<i class="am-icon-search"></i>
+					<input type="text" ng-model="search" class="form-control form-control-solid" placeholder="搜索..."> </div>
+			</div>
+		</div>
+
+	</div>
+	<div class="tpl-block">
+		<div class="am-g">
+			<div class="am-u-sm-12">
+				<form class="am-form">
+					<table class="am-table am-table-hover table-main">
+						<thead>
+							<tr>
+								<th class="table-id">ID</th>
+								<th class="table-title">主机名</th>
+								<th class="table-type">系统类型</th>
+								<th class="table-author am-hide-sm-only">用户类型</th>
+								<th class="table-date am-hide-sm-only">详情</th>
+								<th class="table-status">状态</th>
+								<th class="table-handle">处理状态</th>
+								<th class="table-set">操作</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="data in warningData | filter:search" ng-show="!isRadioClick && data.isDetailShow">
+								<td>{{data.id}}</td>
+								<td>{{data.name}}</td>
+								<td>{{data.systemType}}</td>
+								<td class="am-hide-sm-only">{{data.userType}}</td>
+								<td style="width: 30%" ng-click="showDetail(data)">
+									<span style="cursor: pointer">{{data.Date}}</span>
+								</td>
+								<td><span ng-class="{0: 'am-badge tpl-badge-success am-round',1: 'am-badge tpl-badge-warning am-round',2: 'am-badge tpl-badge-danger am-round'}[data.statusNum]">{{data.Status}}</span></td>
+								<td><span ng-class="{0: 'am-badge tpl-badge-success am-round', 1: 'am-badge tpl-badge-warning am-round'}[data.handleNum]">{{data.handleStatus}}</span></td>
+								<td ng-show="data.name">
+									<div class="am-btn-toolbar">
+										<div class="am-btn-group am-btn-group-xs">
+											<button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> 处理异常</button>
+										</div>
+									</div>
+								</td>
+								<td ng-show="!data.name">
+
+								</td>
+							</tr>
+							<tr ng-repeat="data in outData | filter:search" ng-show="isRadioClick && data.isDetailShow">
+
+								<td>{{data.id}}</td>
+								<td>{{data.name}}</td>
+								<td>{{data.systemType}}</td>
+								<td>{{data.userType}}</td>
+								<td style="width: 30%" ng-click="showDetail(data)">
+									<span style="cursor: pointer">{{data.Date}}</span>
+								</td>
+								<td><span ng-class="{0: 'am-badge tpl-badge-success am-round',1: 'am-badge tpl-badge-warning am-round',2: 'am-badge tpl-badge-danger am-round'}[data.statusNum]">{{data.Status}}</span></td>
+								<td><span ng-class="{0: 'am-badge tpl-badge-success am-round', 1: 'am-badge tpl-badge-warning am-round'}[data.handleNum]">{{data.handleStatus}}</span></td>
+								<td>
+									<div class="am-btn-toolbar">
+										<div class="am-btn-group am-btn-group-xs">
+											<button class="am-btn am-btn-default am-btn-xs am-text-secondary">
+												<span class="am-icon-pencil-square-o">
+
+												</span> 处理异常
+											</button>
+										</div>
+									</div>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
+
+					<hr>
+
+				</form>
+			</div>
+
+		</div>
+	</div>
+	<div class="tpl-alert"></div>
+	
+</div>
+	</div>
+</div>

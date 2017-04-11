@@ -1,0 +1,53 @@
+[
+
+	{
+		"id":"100",
+		"icon": "am-icon-table",
+		"isSecond": true,
+		"isShow": false,
+		"name": "系统X",
+		"Url": "#temp2",
+		"secondName": [{
+			"name": "早盘操作",
+			"Url": "#temp31"
+		},{
+			"name": "夜盘操作",
+			"Url": "#temp32"
+		},{
+			"name": "周操作",
+			"Url": "#temp33"
+		}]
+	},
+	{
+		"id":"101",
+		"icon": "am-icon-table",
+		"isSecond": true,
+		"isShow": false,
+		"name": "系统Y",
+		"Url": "#temp3",
+		"secondName": [{
+			"name": "早盘操作",
+			"Url": "#temp31"
+		},{
+			"name": "夜盘操作",
+			"Url": "#temp32"
+		},{
+			"name": "周操作",
+			"Url": "#temp33"
+		}]
+	},
+	{
+		"id":"102",
+		"icon": "am-icon-bolt",
+		"isSecond": false,
+		"name": "告警",
+		"Url": "#temp5"
+	},
+	{
+		"id":"103",
+		"icon": "am-icon-bolt",
+		"isSecond": false,
+		"name": "日志查询",
+		"Url": "#temp6"
+	}
+]

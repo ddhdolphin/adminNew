@@ -1,0 +1,32 @@
+[
+  {
+    "systemId": "101",
+    "id": "3",
+    "tradeData": "2016-10-5",
+    "tradeLocat": "上交所",
+    "status": "已完成",
+    "orderNumCheck": "100单",
+    "dealNumCheck": "50单",
+    "moneyStatus": "已付款"
+  },
+  {
+    "systemId": "101",
+    "id": "3",
+    "tradeData": "2015-10-5",
+    "tradeLocat": "上交所",
+    "status": "已完成",
+    "orderNumCheck": "100单",
+    "dealNumCheck": "50单",
+    "moneyStatus": "已付款"
+  },
+  {
+    "systemId": "101",
+    "id": "3",
+    "tradeData": "2015-10-5",
+    "tradeLocat": "上交所",
+    "status": "已完成",
+    "orderNumCheck": "100单",
+    "dealNumCheck": "50单",
+    "moneyStatus": "已付款"
+  }
+]
