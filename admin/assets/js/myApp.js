@@ -29,10 +29,10 @@ app.config(['$routeProvider','$compileProvider', function($routeProvider,$compil
 			templateUrl: 'template/template31.html'
 		})
 		.when('/temp32', {
-			templateUrl: 'template/template32.html'
+			templateUrl: 'template/template31.html'
 		})
 		.when('/temp33', {
-			templateUrl: 'template/template33.html'
+			templateUrl: 'template/template31.html'
 		})
 		.when('/temp5', {
 			templateUrl: 'template/template4.html'
@@ -47,15 +47,66 @@ app.run(function($rootScope){
 app.controller('Ctrl1', ['$scope', function($scope) {
 	
 }]);
-app.controller('sideBarCtrl', ['$scope', '$http','$timeout','globalVar', function($scope, $http, $timeout, globalVar) {
+app.controller('sideBarCtrl', ['$scope', '$http','$timeout','globalVar','$location', function($scope, $http, $timeout, globalVar,$location) {
 	$http.get('json/listName.json').success(function (data) {
         $scope.listName = data;
    });
+	$scope.tabList = [];
+	var idList = [];
 	$scope.showListChage = function (id) {
 		$scope.listName[id-100].isShow = !$scope.listName[id-100].isShow;
-		globalVar[0].systemId = id;
-	}
+		angular.forEach($scope.tabList, function (value,index) {
+			value.active = "";
+			if(idList.indexOf(value.id) == -1){
+				idList.push(value.id);
+			}
 
+		});
+		if(idList.indexOf($scope.listName[id-100].id) == -1){
+			$scope.tabList.push({
+				"id": $scope.listName[id-100].id,
+				"name": $scope.listName[id-100].name,
+				"active": "am-active",
+				"Url": $scope.listName[id-100].Url
+			});
+		}else{
+			angular.forEach($scope.tabList, function (value) {
+				if(value.id == id)
+					value.active = "am-active";
+			})
+		}
+		globalVar[0].systemId = id;
+		console.log(idList);
+	};
+	$scope.tabChangeActive = function(id){
+		globalVar[0].systemId = id;
+		angular.forEach($scope.tabList,function(value){
+			value.active = "";
+			if(value.id == id){
+				value.active = "am-active";
+			}
+		})
+	}
+	$scope.tabDelete = function (id) {
+		angular.forEach($scope.tabList, function(data,index){
+			if(data.id == id){
+				$scope.tabList.splice(index,1);
+				idList.splice(index,1);
+			}
+		});
+		var length = $scope.tabList.length;
+		if(length > 0){
+			$scope.tabList[length-1].active = "am-active";
+			globalVar[0].systemId = $scope.tabList[length-1].id;
+			var LocationUrl = $scope.tabList[length-1].Url;
+			LocationUrl = LocationUrl.substring(1,LocationUrl.length);
+			LocationUrl = '/' + LocationUrl;
+			$location.url(LocationUrl);
+		}
+	}
+	$scope.operateChage = function(id){
+		globalVar[1].operateId = id;
+	}
 }]);
 app.controller('serverStatusCtrl',['$scope','$http','globalVar', function ($scope,$http,globalVar) {
 	$scope.Url = 'json/serverStatus' + globalVar[0].systemId + '.json';
@@ -87,146 +138,22 @@ app.controller('clientStatusCtrl',['$scope','$http','globalVar', function ($scop
 		$scope.clientStatus = data;
 	});
 }])
-app.controller('singleSysCtrl',['$scope','$http', function ($scope,$http) {
-	$http.get('json/Status.json').success(function (data) {
-		$scope.systemList1 = data[0].subSystem;
+app.controller('subSystemCtrl',['$scope','$http','globalVar', function ($scope,$http,globalVar) {
+	$scope.Url = 'json/subSystem' + globalVar[1].operateId + '.json';
+	$http.get($scope.Url).success(function (data) {
+		$scope.subSystem = data;
 	});
 }])
-app.controller('warningCtrl', ['$scope',function($scope){
+app.controller('warningCtrl', ['$scope','$http','globalVar',function($scope,$http,globalVar){
 	$scope.isRadioClick = false;
 	$scope.tagSele = {
 		statusNum: '',
 		handleNum: ''
 	};
-	$scope.warningData = [{
-		"id": 1,
-		"name": "主机1号",
-		"systemType": "Linux",
-		"userType": "root",
-		"Date": "展开详情",
-		"Status": "正常",
-		"statusNum": 0, 
-		"handleStatus": "已处理",
-		"handleNum": 0,
-		"handle": "处理异常",
-		"isDetailShow": true
-	},{
-		"secId": 1,
-		"Date" : '详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭',
-		"isDetailShow": false
-	},{
-		"id": 2,
-		"name": "主机2号",
-		"systemType": "windows",
-		"userType": "user",
-		"Date": "展开详情",
-		"Status": "警告",
-		"statusNum": 1,
-		"handleStatus": "未处理",
-		"handleNum": 1,
-		"handle": "处理异常",
-		"isDetailShow": true
-	},{
-		"secId": 2,
-		"Date" : '详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭',
-		"isDetailShow": false
-	},{
-		"id": 3,
-		"name": "主机3号",
-		"systemType": "Linux",
-		"userType": "root",
-		"Date": "展开详情",
-		"Status": "危险",
-		"statusNum": 2,
-		"handleStatus": "未处理",
-		"handleNum": 1,
-		"handle": "处理异常",
-		"isDetailShow": true
-	},{
-		"secId": 3,
-		"Date" : '详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭',
-		"isDetailShow": false
-	},{
-		"id": 4,
-		"name": "主机3号",
-		"systemType": "Linux",
-		"userType": "root",
-		"Date": "展开详情",
-		"Status": "危险",
-		"statusNum": 2,
-		"handleStatus": "未处理",
-		"handleNum": 1,
-		"handle": "处理异常",
-		"isDetailShow": true
-	},{
-		"secId": 4,
-		"Date" : '详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭',
-		"isDetailShow": false
-	},{
-		"id": 5,
-		"name": "主机3号",
-		"systemType": "Linux",
-		"userType": "root",
-		"Date": "展开详情",
-		"Status": "危险",
-		"statusNum": 2,
-		"handleStatus": "未处理",
-		"handleNum": 1,
-		"handle": "处理异常",
-		"isDetailShow": true
-	},{
-		"secId": 5,
-		"Date" : '详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭',
-		"isDetailShow": false
-	},{
-		"id": 6,
-		"name": "主机3号",
-		"systemType": "Linux",
-		"userType": "root",
-		"Date": "展开详情",
-		"Status": "危险",
-		"statusNum": 2,
-		"handleStatus": "未处理",
-		"handleNum": 1,
-		"handle": "处理异常",
-		"isDetailShow": true
-	},{
-		"secId": 6,
-		"Date" : '详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭',
-		"isDetailShow": false
-	},{
-		"id": 7,
-		"name": "主机3号",
-		"systemType": "Linux",
-		"userType": "root",
-		"Date": "展开详情",
-		"Status": "危险",
-		"statusNum": 2,
-		"handleStatus": "未处理",
-		"handleNum": 1,
-		"handle": "处理异常",
-		"isDetailShow": true
-	},{
-		"secId": 7,
-		"Date" : '详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭',
-		"isDetailShow": false
-	},{
-		"id": 8,
-		"name": "主机1号",
-		"systemType": "Linux",
-		"userType": "root",
-		"Date": "展开详情",
-		"Status": "正常",
-		"statusNum": 0,
-		"handleStatus": "已处理",
-		"handleNum": 0,
-		"handle": "处理异常",
-		"isDetailShow": true
-	},{
-		"secId": 8,
-		"Date" : '详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭详细内容的是是我我我的饿饿人人封封封吃饭',
-		"isDetailShow": false
-	}];
+	$scope.Url = 'json/warningStatus' + globalVar[0].systemId + '.json';
+	$http.get($scope.Url).success(function (data) {
+		$scope.warningData = data;
+	});
 	$scope.outData = [];
 	$scope.ischeck = function(){
 		$scope.isRadioClick = true;

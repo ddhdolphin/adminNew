@@ -26,7 +26,7 @@
                         <div class="am-g">
                             <div class="am-u-sm-12">
                                 <form class="am-form">
-                                    <table class="am-table am-table-hover table-main">
+                                    <table class="am-table table-main">
                                         <thead>
                                         <tr>
                                             <th>服务器</th>
@@ -41,7 +41,18 @@
                                         <tr ng-repeat="data in serverStatusData">
                                             <td>{{data.server}}</td>
                                             <td>{{data.status}}</td>
-                                            <td>{{data.CPU}}</td>
+                                            <td class="am-dropdown" style="cursor: pointer" ng-mouseover="showListIcon = true"
+                                                ng-mouseleave="showListIcon = false">
+                                                <div>
+                                                    {{data.CPU}}
+                                                    <div class="am-dropdown-content" ng-if="data.server" ng-show="showListIcon" style="display: block;margin-top: 0">
+                                                            <p ng-repeat="child in data.CpuDetail" style="margin: 0;display: inline-block">
+                                                                {{child.name}}: {{child.value}}&nbsp;
+                                                            </p>
+                                                    </div>
+                                                </div>
+
+                                            </td>
                                             <td>{{data.memory}}</td>
                                             <td>{{data.disk}}</td>
                                             <td>{{data.diskName}}</td>

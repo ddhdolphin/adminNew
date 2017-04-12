@@ -1990,6 +1990,10 @@ div#cmdBorder{
     border: 3px solid #a0a0a0;
     border-radius: 5px;
 }
+.am-icon-close{
+    margin-top: 5px;
+    cursor: pointer;
+}
 @media screen and (max-width: 1000px) {
     .tpl-left-nav-hover {
         display: none;

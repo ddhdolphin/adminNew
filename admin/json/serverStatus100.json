@@ -4,6 +4,19 @@
     "server": "server1",
     "status": "正在运行",
     "CPU": "60%",
+    "CpuDetail": [{
+      "name": "sys",
+      "value": "2.42"
+    },{
+      "name": "nice",
+      "value": "1.22"
+    },{
+      "name": "nice",
+      "value": "1.22"
+    },{
+      "name": "nice",
+      "value": "1.22"
+    }],
     "memory": "40%",
     "disk": "70%",
     "diskName": "root"
@@ -23,6 +36,13 @@
     "server": "server2",
     "status": "正在运行",
     "CPU": "60%",
+    "CpuDetail": [{
+      "name": "sys",
+      "value": "2.42"
+    },{
+      "name": "nice",
+      "value": "1.22"
+    }],
     "memory": "40%",
     "disk": "70%",
     "diskName": "root"
@@ -37,6 +57,13 @@
     "server": "server3",
     "status": "正在运行",
     "CPU": "60%",
+    "CpuDetail": [{
+      "name": "sys",
+      "value": "2.42"
+    },{
+      "name": "nice",
+      "value": "1.22"
+    }],
     "memory": "40%",
     "disk": "70%",
     "diskName": "root"
@@ -56,6 +83,13 @@
     "server": "server4",
     "status": "正在运行",
     "CPU": "60%",
+    "CpuDetail": [{
+      "name": "sys",
+      "value": "2.42"
+    },{
+      "name": "nice",
+      "value": "1.22"
+    }],
     "memory": "40%",
     "disk": "70%",
     "diskName": "root"

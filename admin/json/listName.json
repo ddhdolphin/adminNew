@@ -8,12 +8,15 @@
 		"name": "系统X",
 		"Url": "#temp2",
 		"secondName": [{
+			"opetateId": "1001",
 			"name": "早盘操作",
 			"Url": "#temp31"
 		},{
+			"opetateId": "1002",
 			"name": "夜盘操作",
 			"Url": "#temp32"
 		},{
+			"opetateId": "1003",
 			"name": "周操作",
 			"Url": "#temp33"
 		}]
@@ -26,12 +29,15 @@
 		"name": "系统Y",
 		"Url": "#temp3",
 		"secondName": [{
+			"opetateId": "1011",
 			"name": "早盘操作",
 			"Url": "#temp31"
 		},{
+			"opetateId": "1012",
 			"name": "夜盘操作",
 			"Url": "#temp32"
 		},{
+			"opetateId": "1013",
 			"name": "周操作",
 			"Url": "#temp33"
 		}]

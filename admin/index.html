@@ -144,7 +144,7 @@
 									</i>
 								</a>
 								<ul class="am-dropdown-content" id="second{{data.id}}" ng-if="data.isSecond" style="display: block" ng-show="showListIcon">
-									<li ng-repeat="children in data.secondName">
+									<li ng-repeat="children in data.secondName" ng-click="operateChage(children.opetateId)">
 										<a href="{{children.Url}}">{{children.name}}</a>
 									</li>
 								</ul>
@@ -170,7 +170,7 @@
 									<i ng-class="{true: 'am-icon-angle-right tpl-left-nav-more-ico am-fr am-margin-right',false: ''}[data.isSecond]"></i>
 								</a>
 								<ul class="tpl-left-nav-sub-menu" id="{{data.id}}" ng-if="data.isSecond" style="display: block" ng-show="data.isShow">
-									<li ng-repeat="children in data.secondName">
+									<li ng-repeat="children in data.secondName" ng-click="operateChage(children.opetateId)">
 										<a href="{{children.Url}}">
 											<i ng-class="{true: 'am-icon-angle-right'}[true]"></i>
 											<span ng-bind="children.name"></span>
@@ -178,12 +178,20 @@
 										</a>
 									</li>
 								</ul>
-
                     	</li>
 					</ul>
 				</div>
 			</div>
-
+			<div class="row">
+				<div class="am-u-md-12 am-u-sm-12">
+					<ul class="am-nav am-nav-pills">
+						<li ng-repeat="data in tabList" class="{{data.active}}" style="margin-right: 5px">
+							<span class="am-icon-close" style="float: right" ng-click="tabDelete(data.id)"></span>
+							<a href="{{data.Url}}" ng-bind="data.name" ng-click="tabChangeActive(data.id)" style="display: inline-block"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
 			<div ng-class="{true : 'tpl-content-wrapper',false: 'tpl-content-wrapper2'}[false]" ng-view>
 				
 			</div>
